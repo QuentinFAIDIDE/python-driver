@@ -446,7 +446,7 @@ class Timeout(RequestExecutionException):
         self.required_responses = required_responses
         self.received_responses = received_responses
 
-        if "write_type" in kwargs:
+        if "write_type" in kwargs and kwargs["write_type"] is not None:
             kwargs["write_type"] = WriteType.value_to_name[kwargs["write_type"]]
 
         info = {'consistency': consistency_value_to_name(consistency),
